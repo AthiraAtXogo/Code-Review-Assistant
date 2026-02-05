@@ -21,7 +21,7 @@ export default defineEventHandler(async (event) => {
       filePath: filePath || 'unknown',
       lines: lineCount,
       characters: charCount,
-      blank: lines.filter((line) => line.trim() === '').length,
+      blank: lines.filter((line: string) => line.trim() === '').length,
       comments: detectComments(code, language)
     },
     code,
@@ -34,7 +34,7 @@ export default defineEventHandler(async (event) => {
   }
 })
 
-function detectComments(code: string, language?: string): number {
+function detectComments(code: string, _language?: string): number {
   let count = 0
   const lines = code.split('\n')
 

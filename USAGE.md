@@ -13,6 +13,7 @@ Use Claude Code to analyze files in any project through MCP integration.
 #### **Setup:**
 
 1. **Build this project first:**
+
    ```bash
    cd d:\ManagerProject\claude-template\Code-Review-Assistant
    pnpm build
@@ -21,6 +22,7 @@ Use Claude Code to analyze files in any project through MCP integration.
 2. **Claude Code will auto-detect** the MCP server from `.mcp.json`
 
 3. **In any project**, ask Claude:
+
    ```
    "Use code-review-assistant to analyze this file: [path/to/file.js]"
 
@@ -28,6 +30,7 @@ Use Claude Code to analyze files in any project through MCP integration.
    ```
 
 #### **Example:**
+
 ```bash
 # In your other project
 cd d:\MyProject
@@ -48,15 +51,18 @@ Call the REST API from any project or tool.
 #### **Setup:**
 
 1. **Start the dev server:**
+
    ```bash
    cd d:\ManagerProject\claude-template\Code-Review-Assistant
    pnpm dev
    ```
+
    Server runs at: `http://localhost:3000`
 
 2. **Call endpoints from your project:**
 
 #### **Analyze Code:**
+
 ```bash
 curl -X POST http://localhost:3000/api/analyze \
   -H "Content-Type: application/json" \
@@ -68,6 +74,7 @@ curl -X POST http://localhost:3000/api/analyze \
 ```
 
 **Response:**
+
 ```json
 {
   "success": true,
@@ -86,6 +93,7 @@ curl -X POST http://localhost:3000/api/analyze \
 ```
 
 #### **Explain Code:**
+
 ```bash
 curl -X POST http://localhost:3000/api/explain \
   -H "Content-Type: application/json" \
@@ -97,6 +105,7 @@ curl -X POST http://localhost:3000/api/explain \
 ```
 
 #### **From Node.js:**
+
 ```javascript
 // In your project's script
 const analyzeCode = async (code, language) => {
@@ -114,6 +123,7 @@ console.log(result.analysis.metadata)
 ```
 
 #### **From Python:**
+
 ```python
 import requests
 
@@ -138,6 +148,7 @@ Create a VSCode extension or script to integrate directly.
 #### **Quick Script Example (Node.js):**
 
 Create `review.js` in your project:
+
 ```javascript
 #!/usr/bin/env node
 const fs = require('fs')
@@ -166,6 +177,7 @@ reviewFile(process.argv[2])
 ```
 
 **Run it:**
+
 ```bash
 node review.js src/components/MyComponent.vue
 ```
@@ -177,6 +189,7 @@ node review.js src/components/MyComponent.vue
 ### **1. Pre-commit Hook**
 
 Add to `.git/hooks/pre-commit`:
+
 ```bash
 #!/bin/bash
 
@@ -194,6 +207,7 @@ done
 ### **2. CI/CD Integration**
 
 **GitHub Actions:**
+
 ```yaml
 name: Code Review
 on: [pull_request]
@@ -222,6 +236,7 @@ jobs:
 ### **3. VS Code Task**
 
 Add to your project's `.vscode/tasks.json`:
+
 ```json
 {
   "label": "Review Current File",
@@ -234,6 +249,7 @@ Add to your project's `.vscode/tasks.json`:
 ### **4. npm Script**
 
 Add to your project's `package.json`:
+
 ```json
 {
   "scripts": {
@@ -248,9 +264,11 @@ Add to your project's `package.json`:
 ## 🔧 **API Reference**
 
 ### **POST /api/analyze**
+
 Analyze code quality and metadata.
 
 **Request:**
+
 ```typescript
 {
   code: string      // Code to analyze
@@ -260,6 +278,7 @@ Analyze code quality and metadata.
 ```
 
 **Response:**
+
 ```typescript
 {
   success: boolean
@@ -280,9 +299,11 @@ Analyze code quality and metadata.
 ```
 
 ### **POST /api/explain**
+
 Get code explanation context.
 
 **Request:**
+
 ```typescript
 {
   code: string       // Code to explain
@@ -292,6 +313,7 @@ Get code explanation context.
 ```
 
 **Response:**
+
 ```typescript
 {
   success: boolean
@@ -309,14 +331,16 @@ Get code explanation context.
 ```
 
 ### **GET /api/health**
+
 Check server status.
 
 **Response:**
+
 ```typescript
 {
-  status: "ok"
-  service: "code-review-assistant"
-  version: "0.1.0"
+  status: 'ok'
+  service: 'code-review-assistant'
+  version: '0.1.0'
   timestamp: string
 }
 ```
@@ -326,12 +350,14 @@ Check server status.
 ## 🚀 **Quick Start Example**
 
 1. **Start the server:**
+
    ```bash
    cd d:\ManagerProject\claude-template\Code-Review-Assistant
    pnpm dev
    ```
 
 2. **In your other project, create `review.sh`:**
+
    ```bash
    #!/bin/bash
    curl -X POST http://localhost:3000/api/analyze \
@@ -340,6 +366,7 @@ Check server status.
    ```
 
 3. **Make it executable:**
+
    ```bash
    chmod +x review.sh
    ```

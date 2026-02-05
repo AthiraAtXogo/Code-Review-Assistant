@@ -19,6 +19,7 @@ Built with Vue 3, Nuxt, and Claude AI for intelligent code understanding.
 ## Features
 
 ### Current (Phase 1 - MVP)
+
 - File/snippet code analysis
 - AI-powered quality & security review
 - Interactive chatbot for code questions
@@ -26,6 +27,7 @@ Built with Vue 3, Nuxt, and Claude AI for intelligent code understanding.
 - Local file system integration
 
 ### Planned
+
 - **Phase 2**: GitHub PR integration, inline comments, webhooks
 - **Phase 3**: Codebase-wide context (RAG), custom rules, convention learning
 - **Phase 4**: Multi-user support, analytics, team workspaces
@@ -34,14 +36,14 @@ Built with Vue 3, Nuxt, and Claude AI for intelligent code understanding.
 
 ## Tech Stack
 
-| Layer | Technology |
-|-------|-----------|
-| Frontend | Vue 3 + Nuxt 4 |
-| Backend | Nitro (Nuxt server) |
-| AI | Anthropic Claude API |
-| Analysis | ESLint + AI-powered review |
-| Storage | PostgreSQL + Redis (future) |
-| Deploy | Vercel/Netlify |
+| Layer    | Technology                  |
+| -------- | --------------------------- |
+| Frontend | Vue 3 + Nuxt 4              |
+| Backend  | Nitro (Nuxt server)         |
+| AI       | Anthropic Claude API        |
+| Analysis | ESLint + AI-powered review  |
+| Storage  | PostgreSQL + Redis (future) |
+| Deploy   | Vercel/Netlify              |
 
 ---
 
@@ -68,6 +70,7 @@ code-review-assistant/
 ## Getting Started
 
 ### Prerequisites
+
 - Node.js 18+
 - pnpm 9+
 - Anthropic API key
@@ -104,11 +107,13 @@ pnpm typecheck    # Check TypeScript types
 ## Usage
 
 ### Code Review
+
 1. Upload a file or paste code snippet
 2. Click "Analyze"
 3. View quality, security, and style feedback
 
 ### Code Explanation
+
 1. Open chat interface
 2. Ask questions about the code
 3. Get detailed explanations with context

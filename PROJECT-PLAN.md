@@ -23,9 +23,11 @@
 ## Development Phases
 
 ### Phase 1: MVP Foundation (Current)
+
 **Goal**: Basic working application with core features
 
 **Features**:
+
 - File/snippet upload and analysis
 - AI-powered code review (quality, security, style)
 - Interactive chatbot for code questions
@@ -37,7 +39,9 @@
 ---
 
 ### Phase 2: GitHub Integration (Future)
+
 **Features**:
+
 - GitHub App setup + OAuth
 - PR review automation
 - Inline PR comments
@@ -47,7 +51,9 @@
 ---
 
 ### Phase 3: Advanced Intelligence (Future)
+
 **Features**:
+
 - Vector database integration (Pinecone/Weaviate)
 - Codebase-wide semantic search
 - Custom rule engine
@@ -57,7 +63,9 @@
 ---
 
 ### Phase 4: Team Features (Future)
+
 **Features**:
+
 - Multi-user authentication
 - Team workspaces
 - Analytics dashboard

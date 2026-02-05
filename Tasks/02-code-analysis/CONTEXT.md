@@ -3,6 +3,7 @@
 ## Begin (B) - What we're building
 
 Build the core code analysis engine that:
+
 - Accepts code files or snippets
 - Performs quality, security, and style analysis
 - Uses Claude AI for intelligent insights
@@ -11,6 +12,7 @@ Build the core code analysis engine that:
 ## Refine (R) - Goals & Constraints
 
 ### Goals
+
 - Parse and analyze code files (multiple languages)
 - Generate comprehensive review reports
 - Identify quality issues, security vulnerabilities, style problems
@@ -18,12 +20,14 @@ Build the core code analysis engine that:
 - Support both file upload and text input
 
 ### Constraints
+
 - Must sanitize user input before AI processing
 - Rate limit API calls to Claude
 - Max file size: 100KB per analysis
 - Support: JavaScript, TypeScript, Python, Go (initial)
 
 ### Success Criteria
+
 - Can analyze uploaded files
 - Returns structured markdown report
 - Identifies at least: syntax issues, security patterns, style violations

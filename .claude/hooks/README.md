@@ -4,11 +4,11 @@ Hooks allow you to run scripts at specific points in Claude Code's workflow.
 
 ## Hook Types
 
-| Hook | When it runs |
-|------|--------------|
-| `PreToolUse` | Before a tool executes (can block) |
-| `PostToolUse` | After a tool completes |
-| `UserPromptSubmit` | When user submits a prompt |
+| Hook               | When it runs                       |
+| ------------------ | ---------------------------------- |
+| `PreToolUse`       | Before a tool executes (can block) |
+| `PostToolUse`      | After a tool completes             |
+| `UserPromptSubmit` | When user submits a prompt         |
 
 ## Configuration
 
@@ -62,9 +62,11 @@ Hooks can return JSON to control behavior:
 ## Included Hooks
 
 ### pre-edit.sh
+
 Blocks edits on protected branches (main/master). Enabled by default.
 
 ### post-edit-reminder.sh
+
 Reminds about uncommitted changes after edits. **Disabled by default.**
 
 To enable, add to `.claude/settings.json`:
@@ -90,6 +92,7 @@ To enable, add to `.claude/settings.json`:
 Adjust the `THRESHOLD` variable in the script to control when reminders appear (default: 5 files).
 
 ### pre-commit-test.sh
+
 Runs tests before allowing commits. Blocks commit if tests fail. **Disabled by default.**
 
 - Reads test command from `CONTEXT.md` (looks for `Test: \`command\`` pattern)
@@ -120,3 +123,4 @@ To enable, add to `.claude/settings.json`:
 
 - [Claude Code Hooks Documentation](https://code.claude.com/docs/en/hooks)
 - [Example from ChrisWiles/claude-code-showcase](https://github.com/ChrisWiles/claude-code-showcase)
+```

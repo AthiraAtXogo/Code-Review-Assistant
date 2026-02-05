@@ -1,6 +1,7 @@
 # Claude Command: BRAIN Method — Project Skeleton & Task List
 
 # Copyright (c) 2025 John Hewitt (john@helpirl.com)
+
 # Licensed under the MIT License. See LICENSE file for details.
 
 > **Purpose:** Create a minimal, consistent folder + file scaffold for an idea using the **BRAIN** method, then convert it into an actionable, time-boxed task list.
@@ -16,13 +17,13 @@
 
 ## BRAIN Phases
 
-| Phase | Owner | Time | Claude's Role |
-|-------|-------|------|---------------|
-| **B**egin | 100% Human | ≤3 min | Acknowledge receipt only. No analysis, suggestions, or reframing. |
-| **R**efine | 90% Human | ≤15 min | Ask targeted clarifying questions only. |
-| **A**rrange | 90% AI | — | Propose task breakdown. All output provisional until human approval. |
-| **I**terate | 90% AI | — | Execute tasks one at a time. Log outcomes and blockers. |
-| **N**ext | 100% Human | — | Decide next action: continue, pause, switch projects, or add to backlog. |
+| Phase       | Owner      | Time    | Claude's Role                                                            |
+| ----------- | ---------- | ------- | ------------------------------------------------------------------------ |
+| **B**egin   | 100% Human | ≤3 min  | Acknowledge receipt only. No analysis, suggestions, or reframing.        |
+| **R**efine  | 90% Human  | ≤15 min | Ask targeted clarifying questions only.                                  |
+| **A**rrange | 90% AI     | —       | Propose task breakdown. All output provisional until human approval.     |
+| **I**terate | 90% AI     | —       | Execute tasks one at a time. Log outcomes and blockers.                  |
+| **N**ext    | 100% Human | —       | Decide next action: continue, pause, switch projects, or add to backlog. |
 
 > **Critical:** During Begin, Claude must not analyze, summarize, suggest, or reframe.
 > Violation = stop and restart the phase.
@@ -31,14 +32,15 @@
 
 ## Defaults & Derivations
 
-| Setting | Default | Notes |
-|---------|---------|-------|
-| **Base path** | `Tasks/` | Root folder for all projects |
-| **Task duration** | ≤2 hours | Maximum time per task |
-| **IdeaFolder** | PascalCase(IdeaTitle) | Stop-words removed |
-| **ShortName** | 2–4 words, PascalCase | 3–24 chars, no punctuation |
+| Setting           | Default               | Notes                        |
+| ----------------- | --------------------- | ---------------------------- |
+| **Base path**     | `Tasks/`              | Root folder for all projects |
+| **Task duration** | ≤2 hours              | Maximum time per task        |
+| **IdeaFolder**    | PascalCase(IdeaTitle) | Stop-words removed           |
+| **ShortName**     | 2–4 words, PascalCase | 3–24 chars, no punctuation   |
 
 **Example:**
+
 - Idea: "Add user authentication"
 - Folder: `Tasks/UserAuthentication/`
 - Task files: `01-ResearchAuthOptions.md`, `02-ImplementLogin.md`
@@ -64,12 +66,14 @@ Tasks/
 ```md
 # {IdeaTitle}
 
-> Owner: {Name}  ·  Created: {YYYY-MM-DD}
+> Owner: {Name} · Created: {YYYY-MM-DD}
 
 ## Begin (raw)
+
 <!-- 3-minute brain dump. Do not edit or reinterpret. -->
 
 ## Refine (scope)
+
 - **Goal**:
 - **In / Out of scope**:
 - **Definition of Done**:
@@ -85,13 +89,15 @@ Tasks/
 # Status — {IdeaTitle}
 
 ## Tasks
+
 | No. | Name | Status | Est. | Actual | Notes |
-|----:|------|--------|-----:|-------:|-------|
-| 1   | …    | Todo   | 2h   |        |       |
+| --: | ---- | ------ | ---: | -----: | ----- |
+|   1 | …    | Todo   |   2h |        |       |
 
 > Claude may update **Status** column. Human owns **Actual** column.
 
 ## Project State
+
 - **Status**: Active | Paused | Abandoned
 - **Reason**: (if paused/abandoned)
 - **Revisit trigger**: (if paused)
@@ -109,12 +115,15 @@ Created **only after Arrange approval**.
 **Dependencies**:
 
 ## Steps
+
 - [ ] …
 
 ## Definition of Done
+
 - [ ] …
 
 ## Outcome (fill after Iterate)
+
 - **Actual Time**:
 - **Result**:
 - **Follow-ups**:

@@ -1,6 +1,7 @@
 # Task 02: Claude Teams Integration via MCP
 
 ## Objective
+
 Integrate with Claude Teams subscription using MCP (Model Context Protocol) for code analysis and chat features.
 
 **Architecture**: This tool will be used BY YOU via Claude Teams. No API keys needed - leverages your existing subscription.
@@ -8,6 +9,7 @@ Integrate with Claude Teams subscription using MCP (Model Context Protocol) for 
 ## Steps
 
 1. **Remove Anthropic SDK** (not needed for Teams)
+
    ```bash
    pnpm remove @anthropic-ai/sdk
    ```
@@ -32,6 +34,7 @@ Integrate with Claude Teams subscription using MCP (Model Context Protocol) for 
    - Verify responses
 
 ## Expected Outcome
+
 - No API keys needed (uses Claude Teams)
 - MCP tools registered and callable
 - Server endpoints ready for Claude interaction
@@ -40,6 +43,7 @@ Integrate with Claude Teams subscription using MCP (Model Context Protocol) for 
 ## MCP Configuration
 
 ### .mcp.json
+
 ```json
 {
   "mcpServers": {
@@ -55,6 +59,7 @@ Integrate with Claude Teams subscription using MCP (Model Context Protocol) for 
 ```
 
 ### server/api/analyze.post.ts
+
 ```typescript
 export default defineEventHandler(async (event) => {
   const body = await readBody(event)
@@ -90,6 +95,7 @@ You → Claude Code → MCP → Your Nuxt App → Process Code → Claude → Re
 ```
 
 ## Testing
+
 1. Start dev server: `pnpm dev`
 2. In Claude Code, ask: "Use code-review-assistant to analyze [file]"
 3. Claude will invoke MCP tools
@@ -97,6 +103,7 @@ You → Claude Code → MCP → Your Nuxt App → Process Code → Claude → Re
 5. Claude returns analysis
 
 ## Commit Message
+
 ```
 feat(mcp): integrate with Claude Teams via MCP
 
@@ -109,6 +116,7 @@ Co-Authored-By: Claude Sonnet 4.5 <noreply@anthropic.com>
 ```
 
 ## Notes
+
 - This approach is simpler - no API management
 - Leverages your existing Claude Teams subscription
 - MCP provides structured tool calling

@@ -39,7 +39,7 @@ function countBlankLines(lines: string[]): number {
   return lines.filter((line) => line.trim() === '').length
 }
 
-function countComments(lines: string[], language?: string): number {
+function countComments(lines: string[], _language?: string): number {
   let count = 0
 
   for (const line of lines) {
@@ -59,7 +59,7 @@ function countComments(lines: string[], language?: string): number {
   return count
 }
 
-function countFunctions(code: string, language?: string): number {
+function countFunctions(code: string, _language?: string): number {
   const patterns = [
     /function\s+\w+/g, // JavaScript/TypeScript
     /def\s+\w+/g, // Python
@@ -76,7 +76,7 @@ function countFunctions(code: string, language?: string): number {
   return count
 }
 
-function countImports(lines: string[], language?: string): number {
+function countImports(lines: string[], _language?: string): number {
   return lines.filter((line) => {
     const trimmed = line.trim()
     return (

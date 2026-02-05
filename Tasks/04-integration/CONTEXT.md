@@ -3,6 +3,7 @@
 ## Begin (B) - What we're building
 
 Connect all components into a cohesive application:
+
 - Link chat and analysis features
 - Create unified UI
 - Add error handling
@@ -12,6 +13,7 @@ Connect all components into a cohesive application:
 ## Refine (R) - Goals & Constraints
 
 ### Goals
+
 - Seamless flow between analysis and chat
 - Share code context between features
 - Robust error handling
@@ -19,12 +21,14 @@ Connect all components into a cohesive application:
 - Complete documentation
 
 ### Constraints
+
 - Maintain clean separation of concerns
 - Follow Nuxt best practices
 - Prepare for Vercel/Netlify deployment
 - Keep bundle size reasonable
 
 ### Success Criteria
+
 - User can upload file, review it, then ask questions in chat
 - All features work together
 - No unhandled errors

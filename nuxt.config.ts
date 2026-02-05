@@ -9,7 +9,7 @@ export default defineNuxtConfig({
 
   typescript: {
     strict: true,
-    typeCheck: false  // Disabled for dev mode
+    typeCheck: false // Disabled for dev mode
   },
 
   future: {

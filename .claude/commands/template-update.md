@@ -24,6 +24,7 @@ If output is **not empty**, ask the user:
 > It's easier to review or revert template updates when starting from a clean state.
 >
 > Would you like to commit your changes first before pulling in updates?
+>
 > 1. Yes, commit first (runs `/commit`)
 > 2. No, continue anyway
 
@@ -46,12 +47,12 @@ Wait for user selection before proceeding.
 
 ## What Each Selection Includes
 
-| Selection | Files Updated |
-|-----------|---------------|
+| Selection    | Files Updated                                             |
+| ------------ | --------------------------------------------------------- |
 | **Commands** | `CLAUDE.md`, `.claude/README.md`, `.claude/commands/*.md` |
-| **Skills** | `.claude/skills/*.md` |
-| **Hooks** | `.claude/hooks/README.md`, `.claude/hooks/*.sh` |
-| **All** | All of the above |
+| **Skills**   | `.claude/skills/*.md`                                     |
+| **Hooks**    | `.claude/hooks/README.md`, `.claude/hooks/*.sh`           |
+| **All**      | All of the above                                          |
 
 ## What is NEVER Updated
 
@@ -85,6 +86,7 @@ https://raw.githubusercontent.com/HelpIRL/ClaudeTemplateV1/main/<path>
 ```
 
 Examples:
+
 - `https://raw.githubusercontent.com/HelpIRL/ClaudeTemplateV1/main/CLAUDE.md`
 - `https://raw.githubusercontent.com/HelpIRL/ClaudeTemplateV1/main/.claude/README.md`
 - `https://raw.githubusercontent.com/HelpIRL/ClaudeTemplateV1/main/.claude/commands/brain.md`
@@ -106,11 +108,13 @@ Examples:
 ### 5. Report summary
 
 After completion, show:
+
 - Files updated (with change indicator)
 - New files added
 - Files unchanged (skipped)
 
 Example output:
+
 ```
 Template Update Complete
 

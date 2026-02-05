@@ -33,11 +33,11 @@ This creates the folder structure and guides you through the BRAIN workflow.
 
 ## Task States
 
-| Status | Meaning |
-|--------|---------|
-| Todo | Not started |
-| In Progress | Currently being worked on |
-| Blocked | Waiting on something external |
-| Done | Completed and committed |
+| Status      | Meaning                       |
+| ----------- | ----------------------------- |
+| Todo        | Not started                   |
+| In Progress | Currently being worked on     |
+| Blocked     | Waiting on something external |
+| Done        | Completed and committed       |
 
 See [CLAUDE.md](../CLAUDE.md) for task execution rules.

@@ -1,11 +1,13 @@
 # Task 04: Configure Tooling (TypeScript, ESLint, Prettier)
 
 ## Objective
+
 Set up development tooling for code quality and consistency.
 
 ## Steps
 
 1. **Create tsconfig.json**
+
    ```json
    {
      "extends": "./.nuxt/tsconfig.json",
@@ -19,23 +21,23 @@ Set up development tooling for code quality and consistency.
    ```
 
 2. **Install ESLint dependencies**
+
    ```bash
    pnpm add -D eslint @nuxt/eslint-config
    pnpm add -D prettier eslint-config-prettier
    ```
 
 3. **Create .eslintrc.js**
+
    ```javascript
    module.exports = {
      root: true,
-     extends: [
-       '@nuxt/eslint-config',
-       'prettier'
-     ]
+     extends: ['@nuxt/eslint-config', 'prettier']
    }
    ```
 
 4. **Create .prettierrc**
+
    ```json
    {
      "semi": false,
@@ -46,6 +48,7 @@ Set up development tooling for code quality and consistency.
    ```
 
 5. **Add npm scripts to package.json**
+
    ```json
    "scripts": {
      "lint": "eslint .",
@@ -56,6 +59,7 @@ Set up development tooling for code quality and consistency.
    ```
 
 6. **Create .editorconfig**
+
    ```
    root = true
 
@@ -69,12 +73,14 @@ Set up development tooling for code quality and consistency.
    ```
 
 ## Expected Outcome
+
 - TypeScript strict mode enabled
 - ESLint configured and working
 - Prettier formatting consistent
 - npm scripts for linting/formatting
 
 ## Testing
+
 ```bash
 # Check types
 pnpm typecheck
@@ -89,6 +95,7 @@ pnpm format
 All should run without errors.
 
 ## Commit Message
+
 ```
 feat(tooling): configure TypeScript, ESLint, and Prettier
 

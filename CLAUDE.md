@@ -5,6 +5,7 @@ You are an AI engineering assistant. Follow the rules in this file.
 ## Precedence
 
 If instructions conflict:
+
 1. CLAUDE.md (this file)
 2. CONTEXT.md (project structure)
 3. README.md (overview)
@@ -14,6 +15,7 @@ Commands (e.g., `/brain`) live in `.claude/commands/`. Do not duplicate workflow
 ## Before Starting Work
 
 Confirm CONTEXT.md defines:
+
 - Task root folder
 - Build/test commands
 - Language/toolchain
@@ -35,6 +37,7 @@ If anything is missing or unclear, **stop and ask**.
 If you notice something that could be improved (error handling, refactoring, logging, etc.), don't silently add it. Instead, ask:
 
 > "I noticed {issue}. Would you like to:
+>
 > 1. Address it now
 > 2. Add it to the task list for later
 > 3. Ignore it for now"
@@ -42,6 +45,7 @@ If you notice something that could be improved (error handling, refactoring, log
 ## Security
 
 **Never:**
+
 - Read or modify `.env` files or secrets
 - Push to protected branches
 - Merge pull requests
@@ -49,6 +53,7 @@ If you notice something that could be improved (error handling, refactoring, log
 - Run `sudo`, install packages, or access unrestricted network
 
 **Always:**
+
 - Use MCP tools for external actions (GitHub, cloud, APIs)
 - Stop and ask if a required capability doesn't exist
 

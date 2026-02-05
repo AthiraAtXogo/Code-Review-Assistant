@@ -34,6 +34,7 @@ These are the approved commands. Do not invent alternatives.
 ## Architecture
 
 ### Tech Stack
+
 - **Frontend**: Vue 3 (Composition API), Nuxt 4, TailwindCSS
 - **Backend**: Nitro server (Nuxt server layer)
 - **AI**: Claude Teams via MCP (Model Context Protocol)
@@ -43,6 +44,7 @@ These are the approved commands. Do not invent alternatives.
 - **Integration**: MCP for Claude Teams communication
 
 ### Folder Structure
+
 ```
 app/
   ├── components/       # Vue components (ChatInterface, CodeViewer, etc.)
