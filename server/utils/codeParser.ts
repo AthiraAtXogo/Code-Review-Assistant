@@ -6,21 +6,28 @@ export interface CodeMetadata {
   comments: number
   functions?: number
   imports?: number
+  exports?: number
+  classes?: number
+  complexity?: 'low' | 'medium' | 'high'
 }
 
 export function parseCodeMetadata(code: string, language?: string): CodeMetadata {
   const lines = code.split('\n')
   const lineCount = lines.length
   const charCount = code.length
+  const detectedLanguage = language || detectLanguage(code)
 
   return {
-    language: language || detectLanguage(code),
+    language: detectedLanguage,
     lines: lineCount,
     characters: charCount,
     blank: countBlankLines(lines),
-    comments: countComments(lines, language),
-    functions: countFunctions(code, language),
-    imports: countImports(lines, language)
+    comments: countComments(lines, detectedLanguage),
+    functions: countFunctions(code, detectedLanguage),
+    imports: countImports(lines, detectedLanguage),
+    exports: countExports(lines, detectedLanguage),
+    classes: countClasses(code, detectedLanguage),
+    complexity: calculateComplexity(code, lineCount)
   }
 }
 
@@ -86,6 +93,63 @@ function countImports(lines: string[], _language?: string): number {
       trimmed.startsWith('use ')
     )
   }).length
+}
+
+function countExports(lines: string[], _language?: string): number {
+  return lines.filter((line) => {
+    const trimmed = line.trim()
+    return (
+      trimmed.startsWith('export ') ||
+      trimmed.startsWith('module.exports') ||
+      trimmed.startsWith('exports.')
+    )
+  }).length
+}
+
+function countClasses(code: string, _language?: string): number {
+  const patterns = [
+    /class\s+\w+/g, // JavaScript/TypeScript/Python
+    /type\s+\w+\s+struct/g, // Go
+    /public\s+class\s+\w+/g, // Java
+    /interface\s+\w+/g // TypeScript/Go interfaces
+  ]
+
+  let count = 0
+  for (const pattern of patterns) {
+    const matches = code.match(pattern)
+    if (matches) count += matches.length
+  }
+
+  return count
+}
+
+function calculateComplexity(code: string, lines: number): 'low' | 'medium' | 'high' {
+  // Calculate complexity based on control flow statements and code structure
+  const controlFlowPatterns = [
+    /\bif\s*\(/g,
+    /\belse\b/g,
+    /\bfor\s*\(/g,
+    /\bwhile\s*\(/g,
+    /\bswitch\s*\(/g,
+    /\bcase\s+/g,
+    /\btry\s*{/g,
+    /\bcatch\s*\(/g,
+    /\?\s*.*\s*:/g, // ternary operators
+    /&&|\|\|/g // logical operators
+  ]
+
+  let complexityScore = 0
+  for (const pattern of controlFlowPatterns) {
+    const matches = code.match(pattern)
+    if (matches) complexityScore += matches.length
+  }
+
+  // Normalize by lines of code
+  const normalizedScore = lines > 0 ? complexityScore / lines : 0
+
+  if (normalizedScore < 0.1) return 'low'
+  if (normalizedScore < 0.3) return 'medium'
+  return 'high'
 }
 
 export function formatCodeForDisplay(code: string, maxLines: number = 50): string {

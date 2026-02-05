@@ -1,3 +1,5 @@
+import { parseCodeMetadata, formatCodeForDisplay } from '../utils/codeParser'
+
 export default defineEventHandler(async (event) => {
   const body = await readBody(event)
   const { code, language, filePath } = body
@@ -9,22 +11,15 @@ export default defineEventHandler(async (event) => {
     })
   }
 
-  // Parse code metadata
-  const lines = code.split('\n')
-  const lineCount = lines.length
-  const charCount = code.length
+  // Use enhanced parser for code analysis
+  const metadata = parseCodeMetadata(code, language)
 
-  // Basic code analysis
   const analysis = {
     metadata: {
-      language: language || 'unknown',
-      filePath: filePath || 'unknown',
-      lines: lineCount,
-      characters: charCount,
-      blank: lines.filter((line: string) => line.trim() === '').length,
-      comments: detectComments(code, language)
+      ...metadata,
+      filePath: filePath || 'unknown'
     },
-    code,
+    code: formatCodeForDisplay(code),
     timestamp: new Date().toISOString()
   }
 
@@ -33,23 +28,3 @@ export default defineEventHandler(async (event) => {
     analysis
   }
 })
-
-function detectComments(code: string, _language?: string): number {
-  let count = 0
-  const lines = code.split('\n')
-
-  // Simple comment detection
-  for (const line of lines) {
-    const trimmed = line.trim()
-    if (
-      trimmed.startsWith('//') ||
-      trimmed.startsWith('#') ||
-      trimmed.startsWith('/*') ||
-      trimmed.startsWith('*')
-    ) {
-      count++
-    }
-  }
-
-  return count
-}
