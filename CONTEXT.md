@@ -1,140 +1,99 @@
-# Project Context (Template)
-
-⚠️ **This file is a template.** Follow the bootstrap instructions below.
-
-Claude (and other AI tools) rely on this file to understand the project.
-When this bootstrap section is present, the project has not been configured yet.
-
----
-
-## Bootstrap Instructions for Claude
-
-When you read this file and see this section, help the user set up their project
-using the BRAIN method. Read `.claude/commands/brain.md` for full BRAIN details.
-
-### Welcome Message
-
-Display this to the user:
-
-> **Welcome to the HelpIRL Claude Template** 👋
->
-> This repository is pre-wired with a practical, opinionated structure for working
-> with Claude in a way that stays readable, repeatable, and team-friendly.
->
-> **You'll find:**
-> - A ready-to-use `.claude/` setup (commands, hooks, and skills)
-> - `.github/` structure to encourage clean commits and reviews
-> - A lightweight workflow designed to scale from solo work to teams
->
-> This template uses the **BRAIN method** to establish shared context before any
-> code is written.
->
-> **Begin (B):**
-> This is idea capture only — no design, no planning, no solutions yet.
->
-> Once that's done, I'll guide you through:
-> - **Refine (R):** clarifying goals and constraints
-> - **Arrange (A):** identifying developer tasks and structure
->
-> You can move fast or go deep — the structure is here to support either.
->
-> ---
->
-> **What is this project? Give me the elevator pitch in 2-3 sentences.**
-
-### Bootstrap Flow
-
-1. **Auto-detect values**:
-   - OWNER/REPO from `git remote get-url origin`
-   - Existing folder structure
-
-2. **Begin Phase**:
-   - Wait for user to describe their project (they were prompted in welcome message)
-   - Acknowledge receipt only—no analysis, suggestions, or reframing
-   - Commit: `chore(init): begin project definition`
-
-3. **Refine Phase** — Ask targeted questions:
-   - Primary language/framework?
-   - Build command? (or "none yet")
-   - Test command? (or "none yet")
-   - Source code location? (e.g., `src/`, `lib/`, project root)
-   - Any key constraints or considerations?
-   - Commit: `chore(init): refine project context`
-
-4. **Populate Files**:
-   - Replace this CONTEXT.md with real values (use template in next section)
-   - Update `.github/ISSUE_TEMPLATE/config.yml`—replace `OWNER/REPO` with detected values
-   - Commit: `chore(init): populate project configuration`
-
-5. **Explain Task Workflow**:
-   - "Your project is configured. Features are broken into tasks under `Tasks/`."
-   - "Standard practice: commit when each task is complete so work is captured
-     and you have clean rollback points."
-   - Explain the file structure that will be created:
-     ```
-     Tasks/
-       {FeatureName}/
-         CONTEXT.md        # Feature context (Begin + Refine)
-         Status.md         # Progress tracking
-         01-TaskName.md    # Individual task files
-         02-TaskName.md
-         ...
-     ```
-   - **Important:** Each task MUST be its own file. This provides:
-     - Clear audit trail for what was done
-     - Safe rollback points per task
-     - Readable history even with auto-accept enabled
-
-6. **Transition**:
-   - Ask if ready to scaffold their first feature
-   - If yes, follow `.claude/commands/brain.md` to create the task file structure
-   - **Do not skip creating task files** — the Arrange phase must produce individual
-     `##-TaskName.md` files, not just notes in CONTEXT.md
-
----
-
-## CONTEXT.md Template (use this for replacement)
-
-Once bootstrap is complete, replace this entire file with the following,
-filled in with the user's answers:
-
-```markdown
 # Project Context
+
+## Project Overview
+
+**Code Review Assistant** - AI-powered code analysis and explanation tool combining automated code review with an interactive chatbot to help developers understand codebases and maintain quality standards.
 
 ## Project Structure
 
-- **Source code**: {location}
-- **Tests**: {location or "none yet"}
-- **Config files**: {list relevant files}
-- **Generated artifacts**: {build outputs, or "none"}
+- **Source code**: `app/` (Nuxt application layer), `server/` (Nitro API)
+- **Tests**: `tests/` (to be created)
+- **Config files**: `nuxt.config.ts`, `tsconfig.json`, `.eslintrc.js`
+- **Generated artifacts**: `.nuxt/`, `.output/`, `dist/`
 
 ## Language & Tooling
 
-- **Language**: {language}
-- **Framework**: {framework or "none"}
-- **Build**: `{build command}` or "none yet"
-- **Test**: `{test command}` or "none yet"
-- **Package manager**: {npm, pip, cargo, etc. if applicable}
+- **Language**: TypeScript
+- **Framework**: Vue 3 + Nuxt 4
+- **Build**: `pnpm build`
+- **Test**: `pnpm test` (to be configured)
+- **Dev**: `pnpm dev`
+- **Package manager**: pnpm 9+
 
 ## Build & Test Entry Points
 
 These are the approved commands. Do not invent alternatives.
 
-- Build: `{command}`
-- Test: `{command}`
-- Lint: `{command}` (if applicable)
+- **Dev server**: `pnpm dev`
+- **Build**: `pnpm build`
+- **Preview**: `pnpm preview`
+- **Test**: `pnpm test` (Vitest - to be configured)
+- **Lint**: `pnpm lint`
+- **Typecheck**: `pnpm typecheck`
+
+## Architecture
+
+### Tech Stack
+- **Frontend**: Vue 3 (Composition API), Nuxt 4, TailwindCSS
+- **Backend**: Nitro server (Nuxt server layer)
+- **AI**: Claude Teams via MCP (Model Context Protocol)
+- **Analysis**: ESLint integration + AI-powered review
+- **Database**: PostgreSQL (Phase 2+), Redis for caching (Phase 3+)
+- **Deploy**: Vercel or Netlify
+- **Integration**: MCP for Claude Teams communication
+
+### Folder Structure
+```
+app/
+  ├── components/       # Vue components (ChatInterface, CodeViewer, etc.)
+  ├── composables/      # Composables (useCodeAnalysis, useChatbot, etc.)
+  ├── pages/            # Nuxt pages (routes)
+  ├── layouts/          # Layout components
+  └── assets/           # Styles, images
+
+server/
+  ├── api/              # API endpoints
+  │   ├── analyze.post.ts    # Code analysis endpoint
+  │   └── explain.post.ts    # Code explanation endpoint
+  ├── mcp/              # MCP server and tools
+  │   └── tools.ts           # MCP tool definitions
+  └── utils/            # Server utilities (parsers, formatters)
+
+Tasks/                  # Structured task breakdowns
+  ├── 01-setup/         # Foundation setup
+  ├── 02-code-analysis/ # Analysis engine
+  ├── 03-chatbot/       # Chat interface
+  └── 04-integration/   # Connect services
+```
 
 ## Task Management
 
 Tasks are stored under `Tasks/{FeatureName}/` with numbered task files.
 See `.claude/commands/brain.md` for the BRAIN workflow.
 
+Each task file represents one unit of work with clean git commits at boundaries.
+
 ## Constraints
 
-{Any project-specific rules, limitations, or considerations the user mentioned}
-```
+1. **AI Integration**: Uses Claude Teams via MCP (no API key needed)
+2. **Node version**: Node.js 18+ required
+3. **Deployment**: Requires Claude Code running for MCP communication
+4. **Phase 1 scope**: Focus on MVP (file upload, analysis, explanation) before GitHub integration
+5. **Security**: No file system writes from user input; sanitize all code before processing
+6. **Primary user**: Tool designed for personal use with Claude Teams subscription
 
----
+## Development Phases
 
-End of bootstrap instructions. Once CONTEXT.md is replaced, this section is gone
-and Claude will read the real project context instead.
+**Current Phase**: Phase 1 - MVP Foundation
+
+- Phase 1: File analysis + chatbot (local files)
+- Phase 2: GitHub PR integration
+- Phase 3: Vector DB + codebase context
+- Phase 4: Multi-user + team features
+
+## External Dependencies
+
+- Claude Teams (via MCP)
+- ESLint (code analysis)
+- Nuxt UI (component library - optional)
+- Vue Router (included with Nuxt)

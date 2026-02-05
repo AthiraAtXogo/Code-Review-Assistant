@@ -1,204 +1,162 @@
-# Claude Project Template
+# Code Review Assistant
 
-This repository is a **starter template** for projects that use AI-assisted development
-with strong guardrails, repeatability, and auditability.
-
-It is a **normal Git repository** with a small set of conventions that allow
-AI tools (such as Claude) to work safely and predictably alongside humans.
+AI-powered code review and explanation tool that helps developers understand codebases and maintain quality standards.
 
 ---
 
-## Table of Contents
+## Overview
 
-- [Maintainer & Contact](#maintainer--contact)
-- [License](#license)
-- [What This Template Is](#what-this-template-is)
-- [Template Behavior (important)](#template-behavior-important)
-- [Key Files](#key-files)
-- [Typical Workflow](#typical-workflow)
-- [Adding to an Existing Project](#adding-to-an-existing-project)
-- [Task Structure Example](#task-structure-example)
+**Code Review Assistant** combines automated code analysis with an interactive AI chatbot to:
+
+1. **Review Code** - Analyze pull requests, files, or snippets for quality, security, and best practices
+2. **Explain Code** - Answer questions about codebases, logic, and implementation details
+3. **Assist Teams** - Help developers understand unfamiliar code and enforce standards
+
+Built with Vue 3, Nuxt, and Claude AI for intelligent code understanding.
 
 ---
 
-## Maintainer & Contact
+## Features
 
-This project is maintained by **HelpIRL LLC**.
+### Current (Phase 1 - MVP)
+- File/snippet code analysis
+- AI-powered quality & security review
+- Interactive chatbot for code questions
+- Markdown-formatted reports
+- Local file system integration
 
-- 🌐 Website: https://helpirl.com
-- 📧 Email: john@helpirl.com
-- 🧑‍💻 GitHub: https://github.com/helpirl
+### Planned
+- **Phase 2**: GitHub PR integration, inline comments, webhooks
+- **Phase 3**: Codebase-wide context (RAG), custom rules, convention learning
+- **Phase 4**: Multi-user support, analytics, team workspaces
 
-For questions about:
-- using this template
-- AI-safe development workflows
-- training or consulting
+---
 
-please reach out via email or open an issue.
+## Tech Stack
+
+| Layer | Technology |
+|-------|-----------|
+| Frontend | Vue 3 + Nuxt 4 |
+| Backend | Nitro (Nuxt server) |
+| AI | Anthropic Claude API |
+| Analysis | ESLint + AI-powered review |
+| Storage | PostgreSQL + Redis (future) |
+| Deploy | Vercel/Netlify |
+
+---
+
+## Project Structure
+
+```
+code-review-assistant/
+├── app/                    # Nuxt application layer
+│   ├── components/        # Vue components
+│   ├── composables/       # Composables (API, state)
+│   ├── pages/             # Routes
+│   └── assets/            # Styles, images
+├── server/                # Nitro server (API routes)
+│   ├── api/              # REST endpoints
+│   └── utils/            # Server utilities
+├── Tasks/                 # Structured task breakdowns
+├── .claude/              # AI assistant configuration
+├── CLAUDE.md             # AI behavior rules
+└── CONTEXT.md            # Project structure guide
+```
+
+---
+
+## Getting Started
+
+### Prerequisites
+- Node.js 18+
+- pnpm 9+
+- Anthropic API key
+
+### Installation
+
+```bash
+# Install dependencies
+pnpm install
+
+# Set up environment
+cp .env.example .env
+# Add your ANTHROPIC_API_KEY to .env
+
+# Run development server
+pnpm dev
+
+# Build for production
+pnpm build
+```
+
+### Development Commands
+
+```bash
+pnpm dev          # Start dev server
+pnpm build        # Build for production
+pnpm preview      # Preview production build
+pnpm lint         # Run linter
+pnpm typecheck    # Check TypeScript types
+```
+
+---
+
+## Usage
+
+### Code Review
+1. Upload a file or paste code snippet
+2. Click "Analyze"
+3. View quality, security, and style feedback
+
+### Code Explanation
+1. Open chat interface
+2. Ask questions about the code
+3. Get detailed explanations with context
+
+---
+
+## Development Workflow
+
+This project follows structured AI-assisted development:
+
+1. **Tasks** are broken down in `Tasks/` folder
+2. Each task = one focused objective
+3. **Git commits at task boundaries** for clean rollback
+4. AI assistant follows rules in `CLAUDE.md`
+
+See [CONTEXT.md](CONTEXT.md) for architecture details.
+
+---
+
+## Contributing
+
+1. Check existing tasks in `Tasks/`
+2. Create new task files for features
+3. Follow commit conventions (see `CLAUDE.md`)
+4. Test locally before pushing
+
+---
+
+## Maintainer
+
+**Athira** - [@AthiraAtXogo](https://github.com/AthiraAtXogo)
+
+Repository: https://github.com/AthiraAtXogo/Code-Review-Assistant
+
+---
 
 ## License
 
-This project is licensed under the **MIT License**.
-
-You are free to use, modify, and distribute this template, including for
-commercial purposes. See the `LICENSE` file for details.
-
-## What This Template Is
-
-- A **human-first project scaffold**
-- A **safe starting point** for AI-assisted coding
-- A way to standardize:
-  - documentation
-  - task breakdown
-  - commits
-  - AI behavior
-
-Nothing in this repo is required for your code to run.
-If you remove all AI-related files, the project still works.
+MIT License - See [LICENSE](LICENSE) for details.
 
 ---
 
-## Template Behavior (important)
+## Roadmap
 
-This repository serves **two purposes at once**:
+- [x] Project setup and foundation
+- [ ] MVP: File analysis + chatbot
+- [ ] GitHub PR integration
+- [ ] Vector database for codebase context
+- [ ] Team features and analytics
 
-- It is a **live public repository**
-- It is a **template copied** when you click **Use this template**
-
-Due to a GitHub limitation, files under `.github/` apply to **both** the template
-repository itself *and* to any repositories created from it.
-
-There is no separate "template-only" configuration.
-
-### Pattern 1 — Placeholder configuration (used here)
-
-Some GitHub configuration files (notably `.github/ISSUE_TEMPLATE/config.yml`)
-intentionally contain **placeholders**, for example:
-
-```yaml
-url: https://github.com/OWNER/REPO/discussions
-```
-
-This is **by design**, not an oversight.
-
-Why this pattern is used:
-
-- Prevents forks and template-based projects from accidentally routing issues
-  back to HelpIRL
-- Forces each new project owner to consciously configure their own links
-- Matches the approach used by GitHub's official templates
-
-If you create a repository from this template:
-
-> **You should update `.github/ISSUE_TEMPLATE/config.yml`**
-> to point to your repository's Discussions or support channel.
-
-The template repository itself relies on the contact information above
-for questions and support.
-
----
-
-## Key Files
-
-| File | Purpose |
-|---|---|
-| `README.md` | Human onboarding and project overview |
-| `CONTEXT.md` | Project-specific structure and constraints (AI-first) |
-| `CLAUDE.md` | AI behavior and guardrails |
-| `.claude/commands/` | Slash commands (e.g., `/brain`, `/review`) |
-| `.claude/settings.json` | Permissions, hooks, environment (shared via git) |
-| `.mcp.json` | MCP server configuration (shared via git) |
-| `Tasks/` | Structured task breakdowns, grouped by feature |
-
-### Local Files (git-ignored)
-
-| File | Purpose |
-|---|---|
-| `CLAUDE.local.md` | Personal notes, memories, local context (not shared) |
-| `.claude/settings.local.json` | Personal permissions and settings overrides |
-
-Create `CLAUDE.local.md` in the project root for personal notes that shouldn't be
-committed. Claude reads it automatically but it stays out of version control.
-
----
-
-## Typical Workflow
-
-1. **Initialize a new project**
-   - Use this repo as a template **or**
-   - Run the initialization script in an existing repo
-
-2. **Update `README.md`**
-   - Replace this file with real project documentation
-   - Describe what the project does and how humans use it
-
-3. **Update `.github/ISSUE_TEMPLATE/config.yml`**
-   - Replace `OWNER/REPO` with your GitHub username and repository name
-   - This routes questions to your project's Discussions instead of Issues
-
-4. **Update `CONTEXT.md`**
-   - Describe the actual project structure
-   - Define build/test entry points
-   - Document constraints that AI should not guess
-
-5. **Work using Tasks**
-   - Break work into feature folders under `Tasks/`
-   - Each task is a small, self-contained unit of work
-   - Git commits occur at task boundaries
-
-6. **Let AI assist safely**
-   - AI follows the rules in `CLAUDE.md`
-   - Real-world actions go through approved tools
-   - Humans review results, not shell commands
-
----
-
-## Adding to an Existing Project
-
-Already have a project and want to add these AI guardrails? You don't need to start from scratch.
-
-### Quick Setup
-
-1. **Copy the template-update command** into your project:
-   ```bash
-   mkdir -p .claude/commands
-   curl -sL https://raw.githubusercontent.com/HelpIRL/ClaudeTemplateV1/main/.claude/commands/template-update.md \
-     -o .claude/commands/template-update.md
-   ```
-
-2. **Run the command** in Claude Code:
-   ```
-   /template-update
-   ```
-
-3. **Choose what to install** when prompted:
-   - **Commands** — AI behavior rules (`CLAUDE.md`) + slash commands
-   - **Skills** — Behavioral patterns (e.g., systematic-debugging)
-   - **Hooks** — Workflow scripts (pre-commit tests, edit reminders)
-   - **All** — Everything above
-
-4. **Create your project-specific files** (these are never overwritten):
-   - `CONTEXT.md` — Your project structure, build commands, toolchain
-   - `.claude/settings.json` — Your permissions and hook configuration
-
-### What Gets Updated vs. What Stays Yours
-
-| Your selection | Files updated |
-|----------------|---------------|
-| Commands | `CLAUDE.md`, `.claude/README.md`, `.claude/commands/*.md` |
-| Skills | `.claude/skills/*.md` |
-| Hooks | `.claude/hooks/README.md`, `.claude/hooks/*.sh` |
-
-| Never touched (yours to customize) |
-|-----------------------------------|
-| `README.md` |
-| `CONTEXT.md` |
-| `.claude/settings.json` |
-| `.github/*` |
-
-Run `/template-update` periodically to get improvements without affecting your project-specific configuration.
-
----
-
-## Task Structure Example
-
+See `Tasks/` folder for detailed task breakdown.
