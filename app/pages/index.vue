@@ -112,6 +112,16 @@
         </div>
       </div>
 
+      <!-- CTA Button -->
+      <div class="text-center mb-16">
+        <NuxtLink
+          to="/analyze"
+          class="inline-block px-8 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 font-medium text-lg transition-colors"
+        >
+          Try Code Analysis Now
+        </NuxtLink>
+      </div>
+
       <!-- Integration Info -->
       <div class="bg-gray-50 border border-gray-200 rounded-lg p-8">
         <div class="max-w-3xl mx-auto">
