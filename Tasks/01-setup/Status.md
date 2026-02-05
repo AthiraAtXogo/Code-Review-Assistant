@@ -2,16 +2,16 @@
 
 ## Task Overview
 - Total tasks: 4
-- Completed: 1
+- Completed: 2
 - In progress: 0
-- Pending: 3
+- Pending: 2
 
 ## Task Status
 
 | # | Task | Status | Notes |
 |---|------|--------|-------|
 | 01 | Nuxt initialization | ✅ Completed | Package.json, nuxt.config, tsconfig, ESLint, Prettier |
-| 02 | Claude API setup | ⏳ Pending | |
+| 02 | MCP integration | ✅ Completed | API endpoints, utilities, .mcp.json configured |
 | 03 | Project structure | ⏳ Pending | |
 | 04 | Config & tooling | ⏳ Pending | |
 

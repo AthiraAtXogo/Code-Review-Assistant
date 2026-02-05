@@ -1,13 +1,16 @@
 {
   "$schema": "https://code.claude.com/schemas/mcp.json",
-  "_comment": "MCP server configuration. Shared via git. See: https://modelcontextprotocol.io",
+  "_comment": "MCP server configuration for Code Review Assistant",
 
   "mcpServers": {
-    "_example_disabled": {
-      "_comment": "Uncomment and configure MCP servers as needed",
-      "command": "npx",
-      "args": ["-y", "@modelcontextprotocol/server-filesystem", "/path/to/allowed/dir"],
-      "disabled": true
+    "code-review-assistant": {
+      "_comment": "Code analysis and explanation tools",
+      "command": "node",
+      "args": [".output/server/index.mjs"],
+      "env": {
+        "NITRO_PORT": "3001",
+        "NODE_ENV": "production"
+      }
     }
   }
 }
