@@ -112,13 +112,86 @@
         </div>
       </div>
 
-      <!-- CTA Button -->
-      <div class="text-center mb-16">
+      <!-- CTA Buttons -->
+      <div class="grid md:grid-cols-2 gap-6 mb-16 max-w-4xl mx-auto">
         <NuxtLink
           to="/analyze"
-          class="inline-block px-8 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 font-medium text-lg transition-colors"
+          class="group p-6 bg-white border-2 border-blue-600 rounded-lg hover:bg-blue-50 transition-all"
         >
-          Try Code Analysis Now
+          <div class="flex items-center justify-between mb-3">
+            <div class="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center">
+              <svg
+                class="w-6 h-6 text-white"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"
+                />
+              </svg>
+            </div>
+            <svg
+              class="w-6 h-6 text-blue-600 group-hover:translate-x-1 transition-transform"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M13 7l5 5m0 0l-5 5m5-5H6"
+              />
+            </svg>
+          </div>
+          <h3 class="text-xl font-semibold text-gray-900 mb-2">Analyze Code</h3>
+          <p class="text-gray-600 text-sm">
+            Upload code to analyze metrics, complexity, and quality with detailed reports
+          </p>
+        </NuxtLink>
+
+        <NuxtLink
+          to="/chat"
+          class="group p-6 bg-white border-2 border-indigo-600 rounded-lg hover:bg-indigo-50 transition-all"
+        >
+          <div class="flex items-center justify-between mb-3">
+            <div class="w-12 h-12 bg-indigo-600 rounded-lg flex items-center justify-center">
+              <svg
+                class="w-6 h-6 text-white"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"
+                />
+              </svg>
+            </div>
+            <svg
+              class="w-6 h-6 text-indigo-600 group-hover:translate-x-1 transition-transform"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M13 7l5 5m0 0l-5 5m5-5H6"
+              />
+            </svg>
+          </div>
+          <h3 class="text-xl font-semibold text-gray-900 mb-2">Code Chat</h3>
+          <p class="text-gray-600 text-sm">
+            Ask questions and get AI-powered explanations about your code interactively
+          </p>
         </NuxtLink>
       </div>
 
